@@ -6,10 +6,12 @@
     <title>Train Scheduler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
+
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -22,7 +24,7 @@
       <div class="card">
         <div class="card-header bg-info">Current Train Schedule</div>
           <div class="card-body">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered" id="trainTable">
               <thead>
                 <tr>
                   <th>Train Name</th>
@@ -33,41 +35,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Tea Party 33</td>
-                  <td>Boston</td>
-                  <td>18</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Cheesesteak 1</td>
-                  <td>Philadelphia</td>
-                  <td>24</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Crabcake Express</td>
-                  <td>Baltimore</td>
-                  <td>45</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>NYC 123</td>
-                  <td>New York City</td>
-                  <td>14</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Merica 99</td>
-                  <td>Washington DC</td>
-                  <td>27</td>
-                  <td></td>
-                  <td></td>
-                </tr> 
+                <!-- content here -->
               </tbody>
             </table>
           </div>
@@ -78,22 +46,22 @@
             <div class="card-body">
             <form>
                 <div class="form-group">
-                    <label for="trainTime">Train Time</label>
-                    <input type="text" class="form-control" id="trainTime" placeholder=""> 
+                    <label for="trainTime">Train Name</label>
+                    <input type="text" class="form-control" id="trainNameInput"> 
                   </div>
                   <div class="form-group">
                     <label for="trainDestination">Destination</label>
-                    <input type="text" class="form-control" id="trainDestination" placeholder="">
+                    <input type="text" class="form-control" id="trainDestinationInput">
                   </div>
                 <div class="form-group">
-                    <label for="firstTrainTime">First Train Time (HH:mm - military time)</label>
-                    <input type="time" class="form-control" id="firstTrainTime" placeholder=""> 
+                    <label for="firstTrainTime">First Train Time (HH:mm)</label>
+                    <input type="time" class="form-control" id="trainTimeInput"> 
                   </div>
                   <div class="form-group">
                     <label for="Frequency">Frequency (min)</label>
-                    <input type="number" class="form-control" id="trainFrequency" placeholder="">
+                    <input type="number" class="form-control" id='trainFrequencyInput'>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" id="addTrain" >Add Train</button>
               </form>
        </div>
         </div>
@@ -101,9 +69,7 @@
 
     <nav class="navbar navbar-light bg-light"></br></br></nav>
     
-      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+      
+    <script src="assets/main.js"></script>
 </body>
 </html>
